@@ -1,0 +1,12 @@
+syntax = "proto3";
+package service;
+option go_package = "./pb";
+
+service HelloQuery {
+	rpc Get (HelloGetRuest) returns (HelloGetResponse);
+}
+
+message HelloGetRuest {};
+message HelloGetResponse {
+	string message = 1;
+};
