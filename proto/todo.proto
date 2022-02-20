@@ -1,0 +1,28 @@
+syntax = "proto3";
+package service;
+option go_package = "./pb";
+
+service TodoQuery {
+	rpc Get (TodoGetRuest) returns (TodoGetResponse);
+}
+
+message TodoGetRuest {
+	string id = 1;
+};
+message TodoGetResponse {
+	string id = 1;
+	string title = 2;
+	string body = 3;
+};
+
+service TodoCommand {
+	rpc Create (TodoCreateRuest) returns (TodoCreateResponse);
+}
+
+message TodoCreateRuest {
+  string title = 1;
+	string body = 2;
+};
+message TodoCreateResponse {
+  string id = 1;
+};

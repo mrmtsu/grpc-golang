@@ -4,11 +4,15 @@ export PATH := $(ROOT)/scripts:$(PATH)
 
 .PHONY: build
 
-gen:
-  protoc --proto_path=proto/. --go-grpc_opt require_unimplemented_servers=false,paths=source_relative --go-grpc_out proto/pb/ --go_opt paths=source_relative --go_out proto/pb/ proto/*.proto
+gen-proto:
+	mkdir -p proto/pb
+	rm -rf proto/pb/*
+	protoc --proto_path=proto/. --go-grpc_opt require_unimplemented_servers=false,paths=source_relative --go-grpc_out proto/pb/ --go_opt paths=source_relative --go_out proto/pb/ proto/*.proto
 
-wire:
+gen-injector:
 	cd di && wire
+
+gen: gen-proto gen-injector
 
 run-local-api:
 	go run main.go

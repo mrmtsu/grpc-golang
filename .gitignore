@@ -1,2 +1,4 @@
 di/wire_gen.go
 proto/pb
+db/data
+.mod
