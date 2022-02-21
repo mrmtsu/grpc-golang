@@ -10,9 +10,13 @@ message TodoGetRuest {
 	string id = 1;
 };
 message TodoGetResponse {
-	string id = 1;
-	string title = 2;
-	string body = 3;
+	Todo item = 1;
+
+	message Todo {
+		string id = 1;
+		string title = 2;
+		string body = 3;
+	}
 };
 
 service TodoCommand {
@@ -20,7 +24,7 @@ service TodoCommand {
 }
 
 message TodoCreateRuest {
-  string title = 1;
+	string title = 1;
 	string body = 2;
 };
 message TodoCreateResponse {

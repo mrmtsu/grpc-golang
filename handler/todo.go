@@ -29,10 +29,10 @@ func (q *TodoQuery) Get(ctx context.Context, req *pb.TodoGetRuest) (*pb.TodoGetR
 		return nil, err
 	}
 
+	resItem := TodoFrom(todo)
+
 	return &pb.TodoGetResponse{
-		Id: todo.Id.String(),
-		Title: todo.Title,
-		Body: todo.Body,
+		Item: resItem,
 	}, nil
 }
 
