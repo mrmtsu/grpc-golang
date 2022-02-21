@@ -29,10 +29,10 @@ func entityFrom(d *domain.Todo) *Entity {
 
 func (e *Entity) ToDomain() *domain.Todo {
 	return &domain.Todo{
-		Id:                  domain.TodoId(e.Id),
-		Title: e.Title,
-		Body: e.Body,
-		CreatedAt:           e.CreatedAt,
-		UpdatedAt:           e.UpdatedAt,
+		Id:        domain.TodoId(e.Id),
+		Title:     e.Title,
+		Body:      e.Body,
+		CreatedAt: e.CreatedAt,
+		UpdatedAt: e.UpdatedAt,
 	}
 }

@@ -17,8 +17,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to open grpc listener: %+v", err)
 	}
-	grpcServer.Serve(li)
 
-	log.Println("unexpected end of process")
-	os.Exit(1)
+	if err := grpcServer.Serve(li); err != nil {
+		log.Println("unexpected end of process")
+		os.Exit(1)
+	}
 }

@@ -29,10 +29,8 @@ func (q *TodoQuery) Get(ctx context.Context, req *pb.TodoGetRuest) (*pb.TodoGetR
 		return nil, err
 	}
 
-	resItem := TodoFrom(todo)
-
 	return &pb.TodoGetResponse{
-		Item: resItem,
+		Item: TodoFrom(todo),
 	}, nil
 }
 
